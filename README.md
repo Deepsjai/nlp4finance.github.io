@@ -1,14 +1,16 @@
 
+
+# NLP Models for Sentiment Analysis to find ESG Trends in the Earning Calls
+
 # Introduction
-Audio files are notoriously large when uncompressed. For example, CD quality audio, sampled at 44 kHz, has a bitrate of 1,411 kbits per second (kbps). On a 700 MB CD, there is only enough capacity for about an hour of music.
 
-Consequently audio compression is essential to reducing file sizes to more practical levels, enabling efficient storage and transmission. MP3 is the most common lossy compression algorithm which uses spectral transforms to harness the sparisity and the perceptual limitation of human hearing.
-
-The MP3 codec typically compresses to a bitrate between 128 kbit/s and 320 kbit/s. This demo compares audio bitrates of a sample song from 1kbit/s to 320 kbit/s.
-
-Traditional methods of music compression typcially use deterministic algorithms, which rely on identifying features and patterns in the frequency domain. As deep networks excel at capturing complex patterns and extracting nonlinear features, we analyze their ability to condense a song's patterns into a compressed lower-dimensional space.
-
-Once our compression and extraction framework is in place, we can leverage this compressed space or 'latent space'. The latent space is a more compact version of the audio sample, and is therefore useful when attempting to perform classification. We build another network based on the latent space as opposed to the original input space to perform genre classification. Previous works [3] [4] have used similar methods on the task of genre prediction, using a spectral representation of audio with CNNs and RNNs.
+Earning Calls are one of the most important key resources of information on a company. Not only they are heavily used by investors and equity analysts to get insights on a company's fundamentals and earning estimates, But also they are used for creating trading strategies based on the its highlights. 
+## Background
+This Project is a part of [DataScience4All Women's Summit 2020](https://www.correlation-one.com/ds4a), sponsored by Correlation One. The project owners are five summit participants including [Anastasia Tatarenko](https://www.linkedin.com/in/anastasia-tatarenko-mfe-quant/), [Daria Yurova](https://www.linkedin.com/in/dariayurova/) , [Ningyuan Zhang](https://www.linkedin.com/in/ningyuan-yvonne-zhang-b92b76132/), [Yang Su](https://www.linkedin.com/in/yang-su-1a5b8040/) and [Rohini Shimpatwar](https://www.linkedin.com/in/rohinishimpatwar/). <br />
+The project aims to answer three questions: 
+1. Which NLP model is the best for sentiment factor extraction on financial news? 
+2. Does the news sentiment factor help predict stock returns? 
+3. Does this strategy beat other benchmark trading strategies, e.g. buying the market portfolio?
 
 # Dataset
 We use the FMA dataset [5]. This is an open dataset of ~1 TB of songs from many artists and genres. For this project we use the small version of the dataset containing 8000 songs from 8 genre categories. We used a 70-30 split between train and test set. The choice to use small version was due to unavailability of computing resources needed for larger versions of the dataset.
