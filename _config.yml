@@ -1,2 +1,3 @@
 theme: jekyll-theme-slate
 title: NLP Models for Sentiment Analysis to find ESG Trends in the Earning Calls
+description: Analysing the transcripts from Earning calls to assign them an ESG score based on the ESG factors discussed
