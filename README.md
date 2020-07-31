@@ -1,6 +1,6 @@
 
 
-# NLP Models for Sentiment Analysis to find ESG Trends in the Earning Calls
+# 
 
 # Introduction
 
