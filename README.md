@@ -2,14 +2,14 @@
 
 # Introduction
 
-Earning Calls are one of the most important key resources of information on a company. Not only they are heavily used by investors and equity analysts to get insights on a company's fundamentals and earning estimates, But also they are used for creating trading strategies based on the its highlights.
-The project aims to answer three questions: 
-1. Which NLP model is the best for sentiment factor extraction on Earning call transcripts?
-2. What are the trending topics discussed in the calls and are they related to the ESG industry specific standards as developed by SASB (Sustainability Accounting Standards Board)
-3. Can pre trained tranformer based Language models produce better sentiment analysis results than BiLSTM, CNN and SVM (baseline) models.
+Earning Calls are one of the most important key resources of information on a company. Not only they are heavily used by investors and equity analysts to get insights on a company's fundamentals and earning estimates, But also they are used for creating trading strategies based on the its highlights. <br />
+The project aims to answer three questions:  <br />
+1. Which NLP model is the best for sentiment factor extraction on Earning call transcripts? <br />
+2. What are the trending topics discussed in the calls and are they related to the ESG industry specific standards as developed by SASB (Sustainability Accounting Standards Board) <br />
+3. Can pre trained tranformer based Language models produce better sentiment analysis results than BiLSTM, CNN and SVM (baseline) models. <br />
 
 ### Futher Motivation : 
-Does the news sentiment factor help predict stock returns? 
+ 
 It is further possible that the sentiments for ESG based topics can reflect on the stock price movements of the company and trading strategies can be created using the predictions on the stock returns. It woukld be interesting to know if these strategies can beat benchmark trading strategies.
  <br />
 The owner of this project is  [Deepsha Jain](https://www.linkedin.com/in/deepsjai/) who is 2nd year Masters in Quantitative and computational Finance candidate at Georgia Tech.  <br />
