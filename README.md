@@ -1,16 +1,19 @@
 
 
-# 
-
 # Introduction
 
-Earning Calls are one of the most important key resources of information on a company. Not only they are heavily used by investors and equity analysts to get insights on a company's fundamentals and earning estimates, But also they are used for creating trading strategies based on the its highlights. 
-## Background
-This Project is a part of [DataScience4All Women's Summit 2020](https://www.correlation-one.com/ds4a), sponsored by Correlation One. The project owners are five summit participants including [Anastasia Tatarenko](https://www.linkedin.com/in/anastasia-tatarenko-mfe-quant/), [Daria Yurova](https://www.linkedin.com/in/dariayurova/) , [Ningyuan Zhang](https://www.linkedin.com/in/ningyuan-yvonne-zhang-b92b76132/), [Yang Su](https://www.linkedin.com/in/yang-su-1a5b8040/) and [Rohini Shimpatwar](https://www.linkedin.com/in/rohinishimpatwar/). <br />
+Earning Calls are one of the most important key resources of information on a company. Not only they are heavily used by investors and equity analysts to get insights on a company's fundamentals and earning estimates, But also they are used for creating trading strategies based on the its highlights.
 The project aims to answer three questions: 
-1. Which NLP model is the best for sentiment factor extraction on financial news? 
-2. Does the news sentiment factor help predict stock returns? 
-3. Does this strategy beat other benchmark trading strategies, e.g. buying the market portfolio?
+1. Which NLP model is the best for sentiment factor extraction on Earning call transcripts?
+2. What are the trending topics discussed in the calls and are they related to the ESG industry specific standards as developed by SASB (Sustainability Accounting Standards Board)
+3. Can pre trained tranformer based Language models produce better sentiment analysis results than BiLSTM, CNN and SVM (baseline) models.
+
+### Futher Motivation : 
+Does the news sentiment factor help predict stock returns? 
+It is further possible that the sentiments for ESG based topics can reflect on the stock price movements of the company and trading strategies can be created using the predictions on the stock returns. It woukld be interesting to know if these strategies can beat benchmark trading strategies.
+ <br />
+The owner of this project is  [Deepsha Jain](https://www.linkedin.com/in/deepsjai/) who is 2nd year Masters in Quantitative and computational Finance candidate at Georgia Tech.  <br />
+
 
 # Dataset
 We use the FMA dataset [5]. This is an open dataset of ~1 TB of songs from many artists and genres. For this project we use the small version of the dataset containing 8000 songs from 8 genre categories. We used a 70-30 split between train and test set. The choice to use small version was due to unavailability of computing resources needed for larger versions of the dataset.
