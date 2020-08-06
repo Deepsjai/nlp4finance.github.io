@@ -37,7 +37,7 @@ As an extenstion to this project I have used transformer based BERT model (speci
 
 For the supervised learning however, we wanted labeled that could be used in text classification task. The problem statement is that we are training our data on two class of datasets - one that is contains all the ESG related topics and other that is ESG neutral. The data related to ESG topics was taken from SASB dataset which was again categorized into industry specific standards. The details of SASB dataset have been dicussed below.
 
-## Sustainability Accounting Standards Board
+### Sustainability Accounting Standards Board
 
 Sustainable Investing is the combination of traditional investment approaches with environmental, social and governance (ESG)
 insights. According to the reasearch ESG factors, Classification of companies should be performed using ESG items material to their specific industry. These industries are Consumer Goods, Extractives & Mineral Processing, Financials, Food & Beverage, Health Care, Infrastructure, Renewable Resources & Alternative Energy
@@ -62,41 +62,41 @@ There are several choices of input space which are critical to achieving good pe
 
 # Supervised Learning : Text Clssification
 
-## Baseline Model
+### Baseline Model
 
-## BiLSTM
+### BiLSTM
 
-## CNN
+### CNN
 
-## other model variants BiLSTM with attention
+### other model variants BiLSTM with attention
 
-## Model details
+### Model details
 freq_ae_model
 
-## Loss function
+### Loss function
 An RMSE reconstruction loss is used to train the model. This model effectively penalizes large errors, with less weight given to small deviations. As seen in the next section, this directly optimizes for our evaluation metric.
 
-## Compression Evaluation Metric
+### Compression Evaluation Metric
 Music is fundamentally subjective. Thus generating a quantitative evaluation metric for our compression algorithm is very difficult. It is not possible to naively compare the reconstructed time domain signals, as completely different signals can sound the same. For example, phase shift, or small uniform frequency shifts are imperceptible to the human ear. A naive loss in the time domain would heavily penalise this.
 
 
 # Transfer Learning
 
-## BERT
+### BERT
 
 
-## FINBERT
+### FINBERT
 
-# Model details
+### Model details
 freq_ae_model
 
-# Loss function
+### Loss function
 An RMSE reconstruction loss is used to train the model. This model effectively penalizes large errors, with less weight given to small deviations. As seen in the next section, this directly optimizes for our evaluation metric.
 
-# Compression Evaluation Metric
+### Compression Evaluation Metric
 Music is fundamentally subjective. Thus generating a quantitative evaluation metric for our compression algorithm is very difficult. It is not possible to naively compare the reconstructed time domain signals, as completely different signals can sound the same. For example, phase shift, or small uniform frequency shifts are imperceptible to the human ear. A naive loss in the time domain would heavily penalise this.
 
-# RMSE Loss
+### RMSE Loss
 
 Time-Domain Autoencoder
 Our main motivation for this approach is to build an end-to-end network so that it can potentially learn a more compressed representation. This approach is inspired from computer vision where people moved from a classical pipeline of feature design to end-to-end deep models.
