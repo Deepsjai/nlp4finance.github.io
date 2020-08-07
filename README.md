@@ -64,10 +64,13 @@ The words in the document can also show connections with words as gieven in the 
 # UnSupervised Learning : LDA - Latent Dirichlet Allocation
 
 The latent Dirichlet Allocation is a generative probabilistic model that assumes each topic is a mixture over an underlying set of words, and each document is a mixture of over a set of topic probabilities. I have performed the following tasks for implementing. 
-1.) Exploratory analysis
-2.) Preparing data for LDA analysis
-3.) LDA model training
-4.) Analyzing LDA model results
+#### 1.) Exploratory analysis
+
+#### 2.) Preparing data for LDA analysis
+
+#### 3.) LDA model training
+
+#### 4.) Analyzing LDA model results
 
 
 # Supervised Learning : Text Classification
@@ -127,3 +130,10 @@ _______
 
 <a name="ref1"></a> 1.	ESG2Risk: A Deep Learning Framework from ESGNews to Stock Volatility Prediction, Tian Guo. <br><br>
 <a name="ref2"></a> 2. Distributed Representations of Words and Phrases and their Compositionality<br><br>
+<a name="ref3"></a> 2. Text classification based on hybrid CNN-LSTM hybrid model, Xiangyang She <br><br>
+<a name="ref4"></a> 2. Attention Is All You Need, Ashish Vaswani  <br><br>
+<a name="ref5"></a> 2. FinBERT: Financial Sentiment Analysis with Pre-trained Language Models, Dogu Tan Araci  <br><br>
+
+· 
+
+· 
