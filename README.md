@@ -83,7 +83,7 @@ Fig 3.  The plot shows the embeddings of a set of text in 2 dimensions and shows
 The words in the document can also show connections with words as given in the bipartite graph below. Each number is the index of the word in the text and the edges have weight assigned to them based on the occurence of the word pair.
 
 <p align="center">
-  <img src="./image11.png" width="500" height="600"> 
+  <img src="./image11.png" width="600" height="400"> 
 </p>
 
 <p align="center" style="font-size:16px">
@@ -96,14 +96,48 @@ The latent Dirichlet Allocation is a generative probabilistic model that assumes
 #### 1.) Exploratory analysis
 After the preprocessing of the data, to know the contents and other information of the documents, The exploratory data analysis is done, the results of which are shown below 
 
+
+<p align="center">
+  <img src="./image10.png" width="600" height="300"> 
+</p>
+
+<p align="center" style="font-size:16px">
+Fig 2. Total number of words in all the documents 
+</p>
+
+<p align="center">
+  <img src="./image8.png" width="600" height="300"> 
+</p>
+
+<p align="center" style="font-size:16px">
+Fig 2. In all the documents these are the most common words found
+</p>
+
+
+
 #### 2.) Preparing data for LDA analysis:
-Converting the documents into a simple vector representation using count vection from sklearn. and find out the most common word from the wprd cloud and plot it
+Converting the documents into a simple vector representation using count vection from sklearn. 
+
+<p align="center">
+  <img src="./image7.com.png" width="400" height="400"> 
+</p>
+
+<p align="center" style="font-size:16px">
+Fig 2. Each row represent the text in each of the documents
+</p>
 
 
 #### 3.) LDA model training and Analyzing LDA model results:
 
  Training the LDA we get the following results:
 
+<p align="center">
+  <img src="./image5.png" width="600" height="300"> 
+</p>
+
+<p align="center" style="font-size:16px">
+Fig 2. Topic coherence and most common topics from all the documents 
+</p>
 
 
 
