@@ -83,10 +83,46 @@ Converting the documents into a simple vector representation using count vection
 ### Baseline Model
 
 ### BiLSTM
+the model first creates an embedding vector for each word from an embedding dictionary generated from glove word embeddings. The words which are not found in the embedding dictionary have zeros in all the dimensions. The embedding dimension of each word = 100. Following are the layers in BiLSTM.
+
+· Embedding layer
+
+· 3 Hidden layers: These 3 bidirectional LSTM layers with recurrent dropout = 0.2
+
+· Dropout layer which is a type of regularization to prevent overfit. This masks a certain portion of the output from each hidden layer so that the model does not train on all the nodes and overfit.
+
+· Fully connected dense layer at the end with 256 neurons and Relu activation
+
+· Finally, the output layer with Softmax activation to probability since we have 2 classes
+
+· Since the word embedding is a sparse vector. And it’s a classification problem, the loss function used is “sparse_categorical_crossentropy” with Adam optimizer.
 
 ### CNN
 
-### other model variants BiLSTM with attention
+1D convolution neural nets are also use for sentiment analysis task. The model can be made deeper by doing a character level classification to increase performance but they computationally expensive. I have tried token level classification with the following layers.
+
+· Embedding layer: similar to biLSTM one
+
+· Initial dropout layer with a dropout of 0.2
+
+· Conv1D layer with size of 64 features of size 3 and no. of strides = 1
+
+· Maxpooling layer and 2 Dense connected layers with Relu Activation
+
+· the output layer with Softmax activation to probability
+
+· Back propagation same as in BiLSTM
+
+Accuracy: 91.04*
+
+### other model variants : CNN with LSTM
+Another variant is a Hybrid model that is the combination of CNN and LSTM model. This was implemented from [3] and hybrid framework of the model includes the 1D Convolutional layer followed by Maxpool layer and then the LSTM layer. This model Variant uses CNN to capture local Context of the data which is easier to compute with the CNN model
+
+and LSTM to capture historical information form the sentences which cannot be saved in case of the CNN. It combines the above two models.
+
+LSTM with attention: Attention is new extension used in RNN models to resolve their limitations of bottleneck in the context vector n Sequence to sequence model, (mostly for Machine Translation). Several studies suggest BiLSTM with attention mechanism has greater accuracy than CNN. As mentioned in [2], Attention considers weighted average of all the word embeddings in the context vector and thus in turn adds more weight to the ones that are more appropriate to be used. This is commonly used in BERT models in LSTM encoders and decoders.
+
+I used the same BiLSTM model in 1. Extending it to add attention layer to it. However, the accuracy did not change.
 
 ### Model details
 freq_ae_model
