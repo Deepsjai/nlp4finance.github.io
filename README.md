@@ -48,7 +48,7 @@ Resource Transformation,Services, Technology & Communications,Transportation lab
 Top bigrams indicate that the phrases most frequently mentioned are related to ESG factors in SASB dataset (e.g. “renewable Energy’, ’GAAP financial’), and CEO compensations (e.g. ‘chief executive’, ‘based compensation’ ). The top 2 industries mentioned are Consumer and the IT industry.
 
 <p align="center">
-  <img src="./Screen Shot 2020-08-07 at 3.54.02 PM" /> <img src="./image1.png" width="80" height="80">
+  <img src="./image4.png" width="200" height="200"> <img src="./image1.png" width="200" height="200">
 </p>
 
 <p align="center" style="font-size:16px">
@@ -56,7 +56,7 @@ Fig 1. Top bigrams and the word cloud for SASB datasets
 </p>
 
 <p align="center">
-  <img src="./Screen Shot 2020-08-07 at 3.56.41 PM" /> <img src="./iScreen Shot 2020-08-07 at 4.07.29 PM" />
+  <img src="./image3.png" width="200" height="200"> <img src="./image2.png" width="200" height="200">
 </p>
 
 <p align="center" style="font-size:16px">
