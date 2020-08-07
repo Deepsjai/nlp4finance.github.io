@@ -72,7 +72,7 @@ The input to compute the word embeddings should be distinct words and The orderi
 In order to check the similarity of the sample words and plot the embedding. I used the group of words mentioned in the corpus and based on their co-occurrence plotted their embeddings. The following graph shows similarity of the words. 
 
 <p align="center">
-  <img src="./image9.png" width="300" height="300"> 
+  <img src="./image9.png" width="500" height="500"> 
 </p>
 
 <p align="center" style="font-size:16px">
@@ -83,7 +83,7 @@ Fig 3.  The plot shows the embeddings of a set of text in 2 dimensions and shows
 The words in the document can also show connections with words as given in the bipartite graph below. Each number is the index of the word in the text and the edges have weight assigned to them based on the occurence of the word pair.
 
 <p align="center">
-  <img src="./image11.png" width="400" height="400"> 
+  <img src="./image11.png" width="500" height="600"> 
 </p>
 
 <p align="center" style="font-size:16px">
