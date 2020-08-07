@@ -48,14 +48,29 @@ Resource Transformation,Services, Technology & Communications,Transportation lab
 Top bigrams indicate that the phrases most frequently mentioned are related to ESG factors in SASB dataset (e.g. “renewable Energy’, ’GAAP financial’), and CEO compensations (e.g. ‘chief executive’, ‘based compensation’ ). The top 2 industries mentioned are Consumer and the IT industry.
 
 
-# Word Embeddings using Coccurrence Matrix;
+# Word Embeddings using Co-occurrence Matrix;
 
- In order to get check the similarity between the words in use in the earnings calls, I made word embeddings based on the cooccurence of the words.The first step is creating  co-occurrence matrix for the given corpus and window_size. The corpus here are each document containing the earnings calls and Each word in a document should be at the center of a window and words near edges will have a smaller number of co-occurring word. I choose the window size = 4  as it is easy to compute.
-The input to compute the word embeddings should be distinct words and The ordering of the words in the rows/columns should be the same as the ordering of the words given by the distinct words. The resulting co-occurrence matrix is a sparse matrix and thus the dimenstionality of the matrix needs to be reduced. For this I used Simple Value Decomposition (SVD), truncating  each word embedding to only 4 dimentions. 
+In order to get check the similarity between the words in use in the earnings calls, I made word embeddings based on the cooccurence of the words.The first step is creating  co-occurrence matrix for the given corpus and window_size. The corpus here are each document containing the earnings calls and Each word in a document should be at the center of a window and words near edges will have a smaller number of co-occurring word. I choose the window size = 4  as it is easy to compute.
+The input to compute the word embeddings should be distinct words and The ordering of the words in the rows/columns should be the same as the ordering of the words given by the distinct words. The resulting co-occurrence matrix is a sparse matrix and thus the dimenstionality of the matrix needs to be reduced. For this I used Simple Value Decomposition (SVD), truncating  each word embedding to only 2 dimensions. 
 
 In order to check the similarity of the sample words and plot the embedding. I used the group of words mentioned in the corpus and based on their co-occurrence plotted their embeddings. The following graph shows similarity of the words. 
 
-# Supervised Learning : Text Clssification
+
+
+The words in the document can also show connections with words as gieven in the bipartite graph below. Each number is the index of the word in the text and the edges have weight assigned to them based on the occurence of the word pair.
+
+
+
+# UnSupervised Learning : LDA - Latent Dirichlet Allocation
+
+The latent Dirichlet Allocation is a generative probabilistic model that assumes each topic is a mixture over an underlying set of words, and each document is a mixture of over a set of topic probabilities. I have performed the following tasks for implementing. 
+1.) Exploratory analysis
+2.) Preparing data for LDA analysis
+3.) LDA model training
+4.) Analyzing LDA model results
+
+
+# Supervised Learning : Text Classification
 
 ### Baseline Model
 
@@ -81,6 +96,8 @@ Music is fundamentally subjective. Thus generating a quantitative evaluation met
 
 
 ### FINBERT
+
+We train a FinBert model based on BertForSequenceClassification(BFSC) model, which is built on BERT(Bidirectional Encoder Representations from Transformers) with an extra linear layer on top. To capture the ESG sentiments, we perform transfer learning and fine-tune the BFSC model using the labeled dataset we used in our supervised learning and then predict the sentiment for the testing t in our news data set.
 
 ### Model details
 freq_ae_model
