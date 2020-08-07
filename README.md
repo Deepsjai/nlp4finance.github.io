@@ -116,7 +116,7 @@ Fig 2. In all the documents these are the most common words found
 
 
 #### 2.) Preparing data for LDA analysis:
-Converting the documents into a simple vector representation using count vection from sklearn. 
+Converting the documents into a simple vector representation using count vector from sklearn. 
 
 <p align="center">
   <img src="./image7.com.png" width="400" height="400"> 
@@ -144,22 +144,39 @@ Fig 2. Topic coherence and most common topics from all the documents
 # Supervised Learning : Text Classification
 
 ### Baseline Model
+Text Classification is an automated process of classification of text into predefined categories. A bunch of supervised learning algorithms could be used for this task. However,SVM classifier which I am using as a baseline model to compare deep learning algorithms is used. Before, training the supervised model, the labelsed data is to be tokenized , lemmatized and vectorized properly and also removal of punctuations,stop words and numerics is important. Then the data is divided into training and test. We are already using label encoded data as given below.
+
+<p align="center">
+  <img src="./image12.png" width="300" height="300"> 
+</p>
+
+<p align="center" style="font-size:16px">
+Fig 2. the labels data that is tokenized and changed to word vectors
+</p>
+ 
+word vectorization of the data is turning the text documents into numerical feature vectors. I am using most commonly used glove with 100 dimesions to change to word vectors.
 
 ### BiLSTM
-the model first creates an embedding vector for each word from an embedding dictionary generated from glove word embeddings. The words which are not found in the embedding dictionary have zeros in all the dimensions. The embedding dimension of each word = 100. Following are the layers in BiLSTM.
+
+The model first creates an embedding vector for each word from an embedding dictionary generated from glove word embeddings. The words which are not found in the embedding dictionary have zeros in all the dimensions. The embedding dimension of each word = 100. Following are the layers in BiLSTM.
 
 · Embedding layer
 
-· 3 Hidden layers: These 3 bidirectional LSTM layers with recurrent dropout = 0.2
+· 3 Hidden layers: These 3 bidirectional LSTM layers with recurrent dropout = 0.2. Dropout layer which is a type of regularization to prevent overfit. This masks a certain portion of the output from each hidden layer so that the model does not train on all the nodes and overfit.
 
-· Dropout layer which is a type of regularization to prevent overfit. This masks a certain portion of the output from each hidden layer so that the model does not train on all the nodes and overfit.
+·Fully connected dense layer at the end with 256 neurons and Relu activation
 
-· Fully connected dense layer at the end with 256 neurons and Relu activation
+·Finally, the output layer with Softmax activation to probability since we have 2 classes
 
-· Finally, the output layer with Softmax activation to probability since we have 2 classes
+·Since the word embedding is a sparse vector. And it’s a classification problem, the loss function used is “sparse_categorical_crossentropy” with Adam optimizer.
+<br />
+<p align="center">
+  <img src="./image13.png" width="400" height="600"> 
+</p>
 
-· Since the word embedding is a sparse vector. And it’s a classification problem, the loss function used is “sparse_categorical_crossentropy” with Adam optimizer.
-
+<p align="center" style="font-size:16px">
+Fig 2. Model specifications for BiLSTM model
+</p>
 ### CNN
 
 1D convolution neural nets are also use for sentiment analysis task. The model can be made deeper by doing a character level classification to increase performance but they computationally expensive. I have tried token level classification with the following layers.
