@@ -48,7 +48,7 @@ Resource Transformation,Services, Technology & Communications,Transportation lab
 Top bigrams indicate that the phrases most frequently mentioned are related to ESG factors in SASB dataset (e.g. “renewable Energy’, ’GAAP financial’), and CEO compensations (e.g. ‘chief executive’, ‘based compensation’ ). The top 2 industries mentioned are Consumer and the IT industry.
 
 <p align="center">
-  <img src="./image4.png" width="200" height="200"> <img src="./image1.png" width="200" height="200">
+  <img src="./image4.png" width="600" height="300"> <img src="./image1.png" width="300" height="300">
 </p>
 
 <p align="center" style="font-size:16px">
@@ -56,11 +56,11 @@ Fig 1. Top bigrams and the word cloud for SASB datasets
 </p>
 
 <p align="center">
-  <img src="./image3.png" width="200" height="200"> <img src="./image2.png" width="200" height="200">
+  <img src="./image3.png"width="600" height="300"> <img src="./image2.png" width="300" height="300">
 </p>
 
 <p align="center" style="font-size:16px">
-Fig 3. Top words and the word cloud for Earning calls data 
+Fig 2. Top words and the word cloud for Earning calls data 
 </p>
 
 
@@ -71,11 +71,24 @@ The input to compute the word embeddings should be distinct words and The orderi
 
 In order to check the similarity of the sample words and plot the embedding. I used the group of words mentioned in the corpus and based on their co-occurrence plotted their embeddings. The following graph shows similarity of the words. 
 
+<p align="center">
+  <img src="./image9.png"width="300" height="300"> 
+</p>
+
+<p align="center" style="font-size:16px">
+Fig 3.  The plot shows the embeddings of a set of text in 2 dimensions and shows distance between them represents similarity.
+</p>
 
 
-The words in the document can also show connections with words as gieven in the bipartite graph below. Each number is the index of the word in the text and the edges have weight assigned to them based on the occurence of the word pair.
+The words in the document can also show connections with words as given in the bipartite graph below. Each number is the index of the word in the text and the edges have weight assigned to them based on the occurence of the word pair.
 
+<p align="center">
+  <img src="./image11.png"width="400" height="400"> 
+</p>
 
+<p align="center" style="font-size:16px">
+Fig 4.  The network graph connecting all the distinct text of a Earning call represented by their index.
+</p>
 
 # UnSupervised Learning : LDA - Latent Dirichlet Allocation
 
