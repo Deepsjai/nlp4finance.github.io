@@ -133,7 +133,3 @@ _______
 <a name="ref3"></a> 2. Text classification based on hybrid CNN-LSTM hybrid model, Xiangyang She <br><br>
 <a name="ref4"></a> 2. Attention Is All You Need, Ashish Vaswani  <br><br>
 <a name="ref5"></a> 2. FinBERT: Financial Sentiment Analysis with Pre-trained Language Models, Dogu Tan Araci  <br><br>
-
-· 
-
-· 
