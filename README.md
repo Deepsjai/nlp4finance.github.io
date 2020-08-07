@@ -65,12 +65,17 @@ The words in the document can also show connections with words as gieven in the 
 
 The latent Dirichlet Allocation is a generative probabilistic model that assumes each topic is a mixture over an underlying set of words, and each document is a mixture of over a set of topic probabilities. I have performed the following tasks for implementing. 
 #### 1.) Exploratory analysis
+After the preprocessing of the data, to know the contents and other information of the documents, The exploratory data analysis is done, the results of which are shown below 
 
-#### 2.) Preparing data for LDA analysis
+#### 2.) Preparing data for LDA analysis:
+Converting the documents into a simple vector representation using count vection from sklearn. and find out the most common word from the wprd cloud and plot it
 
-#### 3.) LDA model training
 
-#### 4.) Analyzing LDA model results
+#### 3.) LDA model training and Analyzing LDA model results:
+
+ Training the LDA we get the following results:
+
+
 
 
 # Supervised Learning : Text Classification
