@@ -202,7 +202,7 @@ Accuracy: 91.04*
 
 <br />
 <p align="center">
-  <img src="./image15png" width="900" height="200"> 
+  <img src="./image15.png" width="900" height="200"> 
 </p>
 
 <p align="center" style="font-size:16px">
