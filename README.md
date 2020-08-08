@@ -210,23 +210,17 @@ Fig 11.  Model specifications for CNN model
 </p>
 
 ### other model variants : CNN with LSTM
-Another variant is a Hybrid model that is the combination of CNN and LSTM model. This was implemented from [3] and hybrid framework of the model includes the 1D Convolutional layer followed by Maxpool layer and then the LSTM layer. This model Variant uses CNN to capture local Context of the data which is easier to compute with the CNN model
+Another variant is a Hybrid model that is the combination of CNN and LSTM model. This was implemented from [4] and hybrid framework of the model includes the 1D Convolutional layer followed by Maxpool layer and then the LSTM layer. This model Variant uses CNN to capture local Context of the data which is easier to compute with the CNN model
 
 and LSTM to capture historical information form the sentences which cannot be saved in case of the CNN. It combines the above two models.
 
-LSTM with attention: Attention is new extension used in RNN models to resolve their limitations of bottleneck in the context vector n Sequence to sequence model, (mostly for Machine Translation). Several studies suggest BiLSTM with attention mechanism has greater accuracy than CNN. As mentioned in [2], Attention considers weighted average of all the word embeddings in the context vector and thus in turn adds more weight to the ones that are more appropriate to be used. This is commonly used in BERT models in LSTM encoders and decoders.
+LSTM with attention: Attention is new extension used in RNN models to resolve their limitations of bottleneck in the context vector n Sequence to sequence model, (mostly for Machine Translation). Several studies suggest BiLSTM with attention mechanism has greater accuracy than CNN. As mentioned in [5], Attention considers weighted average of all the word embeddings in the context vector and thus in turn adds more weight to the ones that are more appropriate to be used. This is commonly used in BERT models in LSTM encoders and decoders.
 
 I used the same BiLSTM model in 1. Extending it to add attention layer to it. However, the accuracy did not change.
 
-### Model details
-freq_ae_model
 
 ### Loss function
-An RMSE reconstruction loss is used to train the model. This model effectively penalizes large errors, with less weight given to small deviations. As seen in the next section, this directly optimizes for our evaluation metric.
-
-### Compression Evaluation Metric
-Music is fundamentally subjective. Thus generating a quantitative evaluation metric for our compression algorithm is very difficult. It is not possible to naively compare the reconstructed time domain signals, as completely different signals can sound the same. For example, phase shift, or small uniform frequency shifts are imperceptible to the human ear. A naive loss in the time domain would heavily penalise this.
-
+'sparse_categorical_crossentropy' is used to train the model. This model effectively penalizes large errors, with less weight given to small deviations. As seen in the next section, this directly optimizes for our evaluation metric.
 
 # Transfer Learning
 
@@ -249,13 +243,11 @@ Fig 2. pipeline for FinBert
 We train a FinBert model based on BertForSequenceClassification(BFSC) model, which is built on BERT(Bidirectional Encoder Representations from Transformers) with an extra linear layer on top. To capture the ESG sentiments, we perform transfer learning and fine-tune the BFSC model using the labeled dataset we used in our supervised learning and then predict the sentiment for the testing in our news data set.
 
 ### Model details
-freq_ae_model
-
-### Loss function
-An RMSE reconstruction loss is used to train the model. This model effectively penalizes large errors, with less weight given to small deviations. As seen in the next section, this directly optimizes for our evaluation metric.
-
+Used BertForSequenceClassification(BFSC) model with AdamW variant of Adam optimiser used in tranformer models.
 
 # Conclusion 
+
+Finbert 
 _______
 
 # References
@@ -263,10 +255,10 @@ _______
 <a name="ref1"></a> 1.	ESG2Risk: A Deep Learning Framework from ESGNews to Stock Volatility Prediction, Tian Guo. <br><br>
 <a name="ref2"></a> 2. Distributed Representations of Words and Phrases and their Compositionality<br><br>
 <a name="ref3"></a> 3. SASB standards 2019 for Commercial Banks, Insurance bank, internet and services, Asset Management.
-<a name="ref3"></a> 2. Text classification based on hybrid CNN-LSTM hybrid model, Xiangyang She <br><br>
-<a name="ref4"></a> 2. Attention Is All You Need, Ashish Vaswani  <br><br>
-<a name="ref5"></a> 2. FinBERT: Financial Sentiment Analysis with Pre-trained Language Models, Dogu Tan Araci  <br><br>
-<a name="ref5"></a> 2. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, Jacob Devlin,
+<a name="ref4"></a> 2. Text classification based on hybrid CNN-LSTM hybrid model, Xiangyang She <br><br>
+<a name="ref5"></a> 2. Attention Is All You Need, Ashish Vaswani  <br><br>
+<a name="ref6"></a> 2. FinBERT: Financial Sentiment Analysis with Pre-trained Language Models, Dogu Tan Araci  <br><br>
+<a name="ref7"></a> 2. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, Jacob Devlin,
 <a name="ref8"></a> https://github.com/huggingface/transformers/blob/5bfcd0485ece086ebcbed2d008813037968a9e58/examples/run_glue.py#L128
 · 
 
