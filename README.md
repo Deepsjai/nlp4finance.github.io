@@ -160,7 +160,7 @@ word vectorization of the data is turning the text documents into numerical feat
 
 ### BiLSTM
 
-The idea is to perform sentiment analysis on the earnings call and give a score to the docs based on the relevance to the ESG topics. Since Both CNN and RNN models are capable of Text Classification, a comparative study suggests that RNN with its sequential architecture is used for performing tasks like language modeling and CNN with hierarchical architecture can be used for text classification. However, if the classification tasks require to contextually understand the whole sequence (Document – level classification) RNN outperforms CNN [1].RNN takes longer time computationally and has limitations like vanishing gradients. Variant RNNs like LSTM and GRU are used instead to resolve the limitations. In the Context of ESG, we are only looking at ESG related topics and our classification does not require semantic understanding. Thus, we can use CNNs. In case of RNN, I have used BiLSTM model which is an extension of LSTM ( basically does sequential train in both directions).
+The idea is to perform sentiment analysis on the earnings call and give a score to the docs based on the relevance to the ESG topics. Since Both CNN and RNN models are capable of Text Classification, a comparative study suggests that RNN with its sequential architecture is used for performing tasks like language modeling and CNN with hierarchical architecture can be used for text classification. However, if the classification tasks require to contextually understand the whole sequence (Document – level classification) RNN outperforms CNN .RNN takes longer time computationally and has limitations like vanishing gradients. Variant RNNs like LSTM and GRU are used instead to resolve the limitations. In the Context of ESG, we are only looking at ESG related topics and our classification does not require semantic understanding. Thus, we can use CNNs. In case of RNN, I have used BiLSTM model which is an extension of LSTM ( basically does sequential train in both directions).
 
 The model first creates an embedding vector for each word from an embedding dictionary generated from glove word embeddings. The words which are not found in the embedding dictionary have zeros in all the dimensions. The embedding dimension of each word = 100. Following are the layers in BiLSTM.
 
@@ -210,11 +210,11 @@ Fig 11.  Model specifications for CNN model
 </p>
 
 ### Other Model Variants : CNN with LSTM
-Another variant is a Hybrid model that is the combination of CNN and LSTM model. This was implemented from [4] and hybrid framework of the model includes the 1D Convolutional layer followed by Maxpool layer and then the LSTM layer. This model Variant uses CNN to capture local Context of the data which is easier to compute with the CNN model
+Another variant is a Hybrid model that is the combination of CNN and LSTM model. This was implemented from [[4]](#ref4) and hybrid framework of the model includes the 1D Convolutional layer followed by Maxpool layer and then the LSTM layer. This model Variant uses CNN to capture local Context of the data which is easier to compute with the CNN model
 
 and LSTM to capture historical information form the sentences which cannot be saved in case of the CNN. It combines the above two models.
 
-LSTM with attention: Attention is new extension used in RNN models to resolve their limitations of bottleneck in the context vector n Sequence to sequence model, (mostly for Machine Translation). Several studies suggest BiLSTM with attention mechanism has greater accuracy than CNN. As mentioned in [5], Attention considers weighted average of all the word embeddings in the context vector and thus in turn adds more weight to the ones that are more appropriate to be used. This is commonly used in BERT models in LSTM encoders and decoders.
+LSTM with attention: Attention is new extension used in RNN models to resolve their limitations of bottleneck in the context vector n Sequence to sequence model, (mostly for Machine Translation). Several studies suggest BiLSTM with attention mechanism has greater accuracy than CNN. As mentioned in [[5]](#ref5), Attention considers weighted average of all the word embeddings in the context vector and thus in turn adds more weight to the ones that are more appropriate to be used. This is commonly used in BERT models in LSTM encoders and decoders.
 
 I used the same BiLSTM model in 1. Extending it to add attention layer to it. However, the accuracy did not change.
 
@@ -233,7 +233,7 @@ Vanilla  BERT  involved loading the pre-trained bert model while preparing the d
 
 After masking, the list of tokens can now be embedded through pre-trained bert into sentence embeddings. BERT adds [CLS] token at the beginning of every sentence which can be considered as the output of the representation of the sentence (for less memory).
 
-As discussed in [[7]], the following is the pipeline of the Bert For Sequence Classification. 
+As discussed in [[7]](#ref7), the following is the pipeline of the Bert For Sequence Classification. 
 
 <br />
 <p align="center">
@@ -244,17 +244,17 @@ As discussed in [[7]], the following is the pipeline of the Bert For Sequence Cl
 Fig 2. pipeline for FinBert
 </p>
  
- The pre trained code is based on [8]
+ The pre trained code is based on [8](#ref8)
 ### FINBERT
 
 I trained a FinBert model based on BertForSequenceClassification(BFSC) model, which is built on BERT(Bidirectional Encoder Representations from Transformers) with an extra linear layer on top. To capture the ESG sentiments, performed transfer learning and fine-tune the BFSC model using the labeled dataset used in the supervised learning and then predict the sentiment for the testing in our earnings calls data set.
 
 ### Model details
-Used BertForSequenceClassification(BFSC) model with AdamW variant of Adam optimiser used in tranformer models.
+Used BertForSequenceClassification(BFSC) model with AdamW variant of Adam optimiser used in tranformer models.(#ref6)
 
 # Conclusion 
 
-Finbert 
+Finbert model based on transformer model is outperforms the biLSTM model. However, since the labeled data used for training is not accuratly currated, the model still could not interpreted completly. Also because of the disproportionate size of the two labels. (Positive ESG were very low in the training dataset). The models show high accuracy values. This could be fixed by Oversampling. the most commonly used method is SMOTE: Synthetic Minority Over-sampling Technique. For better results we could further pre-train  in unstructured SASB dataset using BERT and fine tune it with labeled dataset. However, that required multiple GPUs for processing. Potential fix could be decreasing the size of the Padding sequence while training BERT.
 _______
 
 # References
