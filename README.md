@@ -154,9 +154,13 @@ Text Classification is an automated process of classification of text into prede
 Fig 2. the labels data that is tokenized and changed to word vectors
 </p>
  
-word vectorization of the data is turning the text documents into numerical feature vectors. I am using most commonly used glove with 100 dimesions to change to word vectors.
+word vectorization of the data is turning the text documents into numerical feature vectors. I am using most commonly used glove with 100 dimesions to change to word vectors.For this I used glove.6B.100d.word2vec.txt which is suitable for dealing with financial data and 100 dimensions would work fine with respect to speed and computational complexity. Making a dictionary out of the words and its embeddings using glove, I mapped my dataset to get word embeddings.
+
+· Accuracy of SVM turns out to be 0.64. As I used a sample of only 5 sectors’ SasB standards, the training data was relatively small. This could be the reason of low accuracy.
 
 ### BiLSTM
+
+The idea is to perform sentiment analysis on the earnings call and give a score to the docs based on the relevance to the ESG topics. Since Both CNN and RNN models are capable of Text Classification, a comparative study suggests that RNN with its sequential architecture is used for performing tasks like language modeling and CNN with hierarchical architecture can be used for text classification. However, if the classification tasks require to contextually understand the whole sequence (Document – level classification) RNN outperforms CNN [1].RNN takes longer time computationally and has limitations like vanishing gradients. Variant RNNs like LSTM and GRU are used instead to resolve the limitations. In the Context of ESG, we are only looking at ESG related topics and our classification does not require semantic understanding. Thus, we can use CNNs. In case of RNN, I have used BiLSTM model which is an extension of LSTM ( basically does sequential train in both directions).
 
 The model first creates an embedding vector for each word from an embedding dictionary generated from glove word embeddings. The words which are not found in the embedding dictionary have zeros in all the dimensions. The embedding dimension of each word = 100. Following are the layers in BiLSTM.
 
@@ -177,7 +181,8 @@ The model first creates an embedding vector for each word from an embedding dict
 <p align="center" style="font-size:16px">
 Fig 2. Model specifications for BiLSTM model
 </p>
-### CNN
+
+### Convolutional Neural Network
 
 1D convolution neural nets are also use for sentiment analysis task. The model can be made deeper by doing a character level classification to increase performance but they computationally expensive. I have tried token level classification with the following layers.
 
@@ -218,10 +223,20 @@ Music is fundamentally subjective. Thus generating a quantitative evaluation met
 
 ### BERT
 
+As discussed in [[7]], the following is the pipeline of the Bert For Sequence Classification. 
+
+<br />
+<p align="center">
+  <img src="./image14.png" width="400" height="600"> 
+</p>
+
+<p align="center" style="font-size:16px">
+Fig 2. pipeline for FinBert
+</p>
 
 ### FINBERT
 
-We train a FinBert model based on BertForSequenceClassification(BFSC) model, which is built on BERT(Bidirectional Encoder Representations from Transformers) with an extra linear layer on top. To capture the ESG sentiments, we perform transfer learning and fine-tune the BFSC model using the labeled dataset we used in our supervised learning and then predict the sentiment for the testing t in our news data set.
+We train a FinBert model based on BertForSequenceClassification(BFSC) model, which is built on BERT(Bidirectional Encoder Representations from Transformers) with an extra linear layer on top. To capture the ESG sentiments, we perform transfer learning and fine-tune the BFSC model using the labeled dataset we used in our supervised learning and then predict the sentiment for the testing in our news data set.
 
 ### Model details
 freq_ae_model
@@ -229,21 +244,7 @@ freq_ae_model
 ### Loss function
 An RMSE reconstruction loss is used to train the model. This model effectively penalizes large errors, with less weight given to small deviations. As seen in the next section, this directly optimizes for our evaluation metric.
 
-### Compression Evaluation Metric
-Music is fundamentally subjective. Thus generating a quantitative evaluation metric for our compression algorithm is very difficult. It is not possible to naively compare the reconstructed time domain signals, as completely different signals can sound the same. For example, phase shift, or small uniform frequency shifts are imperceptible to the human ear. A naive loss in the time domain would heavily penalise this.
 
-### RMSE Loss
-
-Time-Domain Autoencoder
-Our main motivation for this approach is to build an end-to-end network so that it can potentially learn a more compressed representation. This approach is inspired from computer vision where people moved from a classical pipeline of feature design to end-to-end deep models.
-
-Learning on a time domain signal saves space too as the spectral domain of an audio signal is sparse. We can directly go to a more efficient representation right after the first layer.
-
-Model Details
-time_domain_autoencoder
-
-Loss functions
-Even though an RMSE loss in the time domain is not the best choice from a point of view of audio perception, we found that it worked better than loss computation in spectral or log-spectral domain.
 # Conclusion 
 _______
 
@@ -251,6 +252,11 @@ _______
 
 <a name="ref1"></a> 1.	ESG2Risk: A Deep Learning Framework from ESGNews to Stock Volatility Prediction, Tian Guo. <br><br>
 <a name="ref2"></a> 2. Distributed Representations of Words and Phrases and their Compositionality<br><br>
+<a name="ref3"></a> 3. SASB standards 2019 for Commercial Banks, Insurance bank, internet and services, Asset Management.
 <a name="ref3"></a> 2. Text classification based on hybrid CNN-LSTM hybrid model, Xiangyang She <br><br>
 <a name="ref4"></a> 2. Attention Is All You Need, Ashish Vaswani  <br><br>
 <a name="ref5"></a> 2. FinBERT: Financial Sentiment Analysis with Pre-trained Language Models, Dogu Tan Araci  <br><br>
+<a name="ref5"></a> 2. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, Jacob Devlin,
+
+· 
+
