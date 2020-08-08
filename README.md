@@ -102,7 +102,7 @@ After the preprocessing of the data, to know the contents and other information 
 </p>
 
 <p align="center" style="font-size:16px">
-Fig 2. Total number of words in all the documents 
+Fig 5. Total number of words in all the documents 
 </p>
 
 <p align="center">
@@ -110,7 +110,7 @@ Fig 2. Total number of words in all the documents
 </p>
 
 <p align="center" style="font-size:16px">
-Fig 2. In all the documents these are the most common words found
+Fig 6. In all the documents these are the most common words found
 </p>
 
 
@@ -123,7 +123,7 @@ Converting the documents into a simple vector representation using count vector 
 </p>
 
 <p align="center" style="font-size:16px">
-Fig 2. Each row represent the text in each of the documents
+Fig 7. Each row represent the text in each of the documents
 </p>
 
 
@@ -136,7 +136,7 @@ Fig 2. Each row represent the text in each of the documents
 </p>
 
 <p align="center" style="font-size:16px">
-Fig 2. Topic coherence and most common topics from all the documents 
+Fig 8. Topic coherence and most common topics from all the documents 
 </p>
 
 
@@ -151,7 +151,7 @@ Text Classification is an automated process of classification of text into prede
 </p>
 
 <p align="center" style="font-size:16px">
-Fig 2. the labels data that is tokenized and changed to word vectors
+Fig 9. the labels data that is tokenized and changed to word vectors
 </p>
  
 word vectorization of the data is turning the text documents into numerical feature vectors. I am using most commonly used glove with 100 dimesions to change to word vectors.For this I used glove.6B.100d.word2vec.txt which is suitable for dealing with financial data and 100 dimensions would work fine with respect to speed and computational complexity. Making a dictionary out of the words and its embeddings using glove, I mapped my dataset to get word embeddings.
@@ -179,7 +179,7 @@ The model first creates an embedding vector for each word from an embedding dict
 </p>
 
 <p align="center" style="font-size:16px">
-Fig 2. Model specifications for BiLSTM model
+Fig 10. Model specifications for BiLSTM model
 </p>
 
 ### Convolutional Neural Network
@@ -199,6 +199,15 @@ Fig 2. Model specifications for BiLSTM model
 · Back propagation same as in BiLSTM
 
 Accuracy: 91.04*
+
+<br />
+<p align="center">
+  <img src="./image15png" width="900" height="200"> 
+</p>
+
+<p align="center" style="font-size:16px">
+Fig 11.  Model specifications for CNN model
+</p>
 
 ### other model variants : CNN with LSTM
 Another variant is a Hybrid model that is the combination of CNN and LSTM model. This was implemented from [3] and hybrid framework of the model includes the 1D Convolutional layer followed by Maxpool layer and then the LSTM layer. This model Variant uses CNN to capture local Context of the data which is easier to compute with the CNN model
@@ -233,7 +242,8 @@ As discussed in [[7]], the following is the pipeline of the Bert For Sequence Cl
 <p align="center" style="font-size:16px">
 Fig 2. pipeline for FinBert
 </p>
-
+ 
+ The pre trained cod eis based on [8]
 ### FINBERT
 
 We train a FinBert model based on BertForSequenceClassification(BFSC) model, which is built on BERT(Bidirectional Encoder Representations from Transformers) with an extra linear layer on top. To capture the ESG sentiments, we perform transfer learning and fine-tune the BFSC model using the labeled dataset we used in our supervised learning and then predict the sentiment for the testing in our news data set.
@@ -257,6 +267,6 @@ _______
 <a name="ref4"></a> 2. Attention Is All You Need, Ashish Vaswani  <br><br>
 <a name="ref5"></a> 2. FinBERT: Financial Sentiment Analysis with Pre-trained Language Models, Dogu Tan Araci  <br><br>
 <a name="ref5"></a> 2. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, Jacob Devlin,
-
+<a name="ref8"></a> https://github.com/huggingface/transformers/blob/5bfcd0485ece086ebcbed2d008813037968a9e58/examples/run_glue.py#L128
 · 
 
