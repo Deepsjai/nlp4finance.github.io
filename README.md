@@ -227,7 +227,7 @@ As discussed in [[7]], the following is the pipeline of the Bert For Sequence Cl
 
 <br />
 <p align="center">
-  <img src="./image14.pmg.png" width="700" height="200"> 
+  <img src="./image14.pmg.png" width="900" height="200"> 
 </p>
 
 <p align="center" style="font-size:16px">
