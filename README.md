@@ -209,7 +209,7 @@ Accuracy: 91.04*
 Fig 11.  Model specifications for CNN model
 </p>
 
-### other model variants : CNN with LSTM
+### Other Model Variants : CNN with LSTM
 Another variant is a Hybrid model that is the combination of CNN and LSTM model. This was implemented from [4] and hybrid framework of the model includes the 1D Convolutional layer followed by Maxpool layer and then the LSTM layer. This model Variant uses CNN to capture local Context of the data which is easier to compute with the CNN model
 
 and LSTM to capture historical information form the sentences which cannot be saved in case of the CNN. It combines the above two models.
@@ -224,7 +224,14 @@ I used the same BiLSTM model in 1. Extending it to add attention layer to it. Ho
 
 # Transfer Learning
 
+Transfer learning is used to extract information from a source domain and apply it to a different target domain.
+There are several types of transfer learning which are classified into transductive transfer learning and Inductive Transfer Learning based on  whether the source and target domains deal with the same task or the nature of the source and target domains. We are dealing with Language Model Transfer pre-training 
+
 ### BERT
+
+Vanilla  BERT  involved loading the pre-trained bert model while preparing the dataset involved Tokenizing using inbuilt Bert tokenizer in pytorch. After tokenization, the text in formatted in a list of sentences where each sentence is a list of tokens. For faster processing as a batch, Bert requires all token lists to be of same size. There padding is needed which converts all lists into 2d array of same size. All lists smaller than the size will have 0 and larger than that will be truncated. Next step is masking the padding so that the bert model ignores the padding.
+
+After masking, the list of tokens can now be embedded through pre-trained bert into sentence embeddings. BERT adds [CLS] token at the beginning of every sentence which can be considered as the output of the representation of the sentence (for less memory).
 
 As discussed in [[7]], the following is the pipeline of the Bert For Sequence Classification. 
 
@@ -237,10 +244,10 @@ As discussed in [[7]], the following is the pipeline of the Bert For Sequence Cl
 Fig 2. pipeline for FinBert
 </p>
  
- The pre trained cod eis based on [8]
+ The pre trained code is based on [8]
 ### FINBERT
 
-We train a FinBert model based on BertForSequenceClassification(BFSC) model, which is built on BERT(Bidirectional Encoder Representations from Transformers) with an extra linear layer on top. To capture the ESG sentiments, we perform transfer learning and fine-tune the BFSC model using the labeled dataset we used in our supervised learning and then predict the sentiment for the testing in our news data set.
+I trained a FinBert model based on BertForSequenceClassification(BFSC) model, which is built on BERT(Bidirectional Encoder Representations from Transformers) with an extra linear layer on top. To capture the ESG sentiments, performed transfer learning and fine-tune the BFSC model using the labeled dataset used in the supervised learning and then predict the sentiment for the testing in our earnings calls data set.
 
 ### Model details
 Used BertForSequenceClassification(BFSC) model with AdamW variant of Adam optimiser used in tranformer models.
@@ -255,10 +262,10 @@ _______
 <a name="ref1"></a> 1.	ESG2Risk: A Deep Learning Framework from ESGNews to Stock Volatility Prediction, Tian Guo. <br><br>
 <a name="ref2"></a> 2. Distributed Representations of Words and Phrases and their Compositionality<br><br>
 <a name="ref3"></a> 3. SASB standards 2019 for Commercial Banks, Insurance bank, internet and services, Asset Management.
-<a name="ref4"></a> 2. Text classification based on hybrid CNN-LSTM hybrid model, Xiangyang She <br><br>
-<a name="ref5"></a> 2. Attention Is All You Need, Ashish Vaswani  <br><br>
-<a name="ref6"></a> 2. FinBERT: Financial Sentiment Analysis with Pre-trained Language Models, Dogu Tan Araci  <br><br>
-<a name="ref7"></a> 2. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, Jacob Devlin,
-<a name="ref8"></a> https://github.com/huggingface/transformers/blob/5bfcd0485ece086ebcbed2d008813037968a9e58/examples/run_glue.py#L128
+<a name="ref4"></a> 4. Text classification based on hybrid CNN-LSTM hybrid model, Xiangyang She <br><br>
+<a name="ref5"></a> 5. Attention Is All You Need, Ashish Vaswani  <br><br>
+<a name="ref6"></a> 6. FinBERT: Financial Sentiment Analysis with Pre-trained Language Models, Dogu Tan Araci  <br><br>
+<a name="ref7"></a> 7. BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, Jacob Devlin,
+<a name="ref8"></a> [Huggingface pre- trained BERT](https://github.com/huggingface/transformers/blob/5bfcd0485ece086ebcbed2d008813037968a9e58/examples/run_glue.py#L128)
 · 
 
