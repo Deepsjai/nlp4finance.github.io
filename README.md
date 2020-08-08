@@ -250,7 +250,7 @@ Fig 2. pipeline for FinBert
 I trained a FinBert model based on BertForSequenceClassification(BFSC) model, which is built on BERT(Bidirectional Encoder Representations from Transformers) with an extra linear layer on top. To capture the ESG sentiments, performed transfer learning and fine-tune the BFSC model using the labeled dataset used in the supervised learning and then predict the sentiment for the testing in our earnings calls data set.
 
 ### Model details
-Used BertForSequenceClassification(BFSC) model with AdamW variant of Adam optimiser used in tranformer models.(#ref6)
+Used BertForSequenceClassification(BFSC) model with AdamW variant of Adam optimiser used in tranformer models.[6](#ref6)
 
 # Conclusion 
 
